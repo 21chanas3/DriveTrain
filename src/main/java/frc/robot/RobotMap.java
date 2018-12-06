@@ -17,6 +17,5 @@ package frc.robot;
 public class RobotMap {
   public static int leftMotorPort = 1; //Ports for all parts (Ports used are not actual ports)
   public static int rightMotorPort = 2;
-  public static int leftJoystickPort = 3;
-  public static int rightJoystickPort = 4;
+  public static int xboxControllerPort = 3;
 }

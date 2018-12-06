@@ -8,16 +8,19 @@
 package frc.robot;
 
 import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.XboxController;
 
 public class OI { //The OI class contains everything related to interpreting user input
-  Joystick leftJoystick = new Joystick(RobotMap.leftJoystickPort); //Declares a Joystick with the name of leftJoystick 
-  Joystick rightJoystick = new Joystick(RobotMap.rightJoystickPort); //and assigns it a new Joystick Class
+  XboxController xboxController = new XboxController(RobotMap.xboxControllerPort); //Declare new Xbox Controller
 
-  public double getLeftSpeed() { //Function which returns the leftJoystick "Speed" (Y-Axis)
-    return leftJoystick.getY();
-  }
-
-  public double getRightSpeed() { //Function which returns the rightJoystick "Speed" (Y-Axis)
-    return rightJoystick.getY();
+  public double[] getSpeeds() {
+    double[] speeds = new double[2];
+    double x = xboxController.getX();
+    double y = xboxController.getY();
+    double v = (100-Math.abs(x)) * (y/100) + y;
+    double w = (100-Math.abs(y)) * (x/100) + x;
+    speeds[0] = (v-w)/2;
+    speeds[1] = (v+w)/2;
+    return speeds;
   }
 }

@@ -23,11 +23,10 @@ public class TankDrive extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    double leftJoystickPos = Robot.m_oi.getLeftSpeed(); //Gets the "Speed" (Y-Axis) of the left joystick
-    double rightJoystickPos = Robot.m_oi.getRightSpeed(); //Gets the "Speed" (Y-Axis) of the right joystick
+    double[] speeds = Robot.m_oi.getSpeeds();
 
-    Robot.subsystem_driveTrain.leftMotorDrive(leftJoystickPos); //Runs functions to set speed of both motots
-    Robot.subsystem_driveTrain.rightMotorDrive(rightJoystickPos);
+    Robot.subsystem_driveTrain.leftMotorDrive(speeds[0]); //Runs functions to set speed of both motors
+    Robot.subsystem_driveTrain.rightMotorDrive(speeds[1]);
   }
 
   // Make this return true when this Command no longer needs to run execute()

@@ -14,7 +14,7 @@ import frc.robot.commands.TankDrive;
 
 public class DriveTrain extends Subsystem {
 
-  Spark leftMotor = new Spark(RobotMap.leftMotorPort); //Declars a new Spark and assigns it a new Spark class
+  Spark leftMotor = new Spark(RobotMap.leftMotorPort); //Declares a new Spark and assigns it a new Spark class
   Spark rightMotor = new Spark(RobotMap.rightMotorPort); //See above
 
   @Override
@@ -38,7 +38,7 @@ public class DriveTrain extends Subsystem {
     targetMotor.setSpeed(speed);
   }
 
-  public void stop(){ //Stops all motors, effectivly stoping the robot
+  public void stop(){ //Stops all motors, effectively stopping the robot
     leftMotor.setSpeed(0);
     rightMotor.setSpeed(0);
   }

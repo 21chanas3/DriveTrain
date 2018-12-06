@@ -11,7 +11,7 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.XboxController;
 
 public class OI { //The OI class contains everything related to interpreting user input
-  XboxController xboxController = new XboxController(RobotMap.xboxControllerPort); //Declare new Xbox Controller
+  private XboxController xboxController = new XboxController(RobotMap.xboxControllerPort); //Declare new Xbox Controller
 
   public double[] getSpeeds() {
     double[] speeds = new double[2];

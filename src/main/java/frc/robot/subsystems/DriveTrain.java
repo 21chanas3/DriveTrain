@@ -8,14 +8,15 @@
 package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
+import frc.robot.Robot;
 import frc.robot.RobotMap;
 import edu.wpi.first.wpilibj.Spark;
 import frc.robot.commands.TankDrive;
 
 public class DriveTrain extends Subsystem {
 
-  Spark leftMotor = new Spark(RobotMap.leftMotorPort); //Declares a new Spark and assigns it a new Spark class
-  Spark rightMotor = new Spark(RobotMap.rightMotorPort); //See above
+  private Spark leftMotor;
+  private Spark rightMotor;
 
   @Override
   public void initDefaultCommand() { //Sets the default command for this SubSystem
@@ -24,6 +25,8 @@ public class DriveTrain extends Subsystem {
 
   public DriveTrain(String name) { //Constructor
       super(name);
+      leftMotor = new Spark(RobotMap.leftMotorPort);
+      rightMotor = new Spark(RobotMap.rightMotorPort);
   }
 
   public void leftMotorDrive(double speed) { //Function to apply speed to motor
@@ -34,7 +37,7 @@ public class DriveTrain extends Subsystem {
     motorDrive(rightMotor, speed);
   }
 
-  public void motorDrive(Spark targetMotor, double speed) { //Generic Function to assign any Spark a speed
+  private void motorDrive(Spark targetMotor, double speed) { //Generic Function to assign any Spark a speed
     targetMotor.setSpeed(speed);
   }
 
